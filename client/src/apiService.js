@@ -10,6 +10,7 @@ const apiURL = `${ADDRESS}:${PORT}/${PATH}`;
 
 const handleError = (err) => {
   // TODO implement handle error
+  // eslint-disable-next-line no-console
   console.error(err);
 };
 
