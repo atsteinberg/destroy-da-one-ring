@@ -9,3 +9,9 @@
   justify-content: center;
   padding: 3rem;
 }
+
+@media only screen and (max-width: 55rem) {
+  .ResultDisplay {
+    width: 90vw;
+  }
+}
