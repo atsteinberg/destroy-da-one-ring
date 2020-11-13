@@ -3,10 +3,6 @@ const checkSolution = require('../gameLogic');
 const mocks = require('./gameLogic.mocks');
 
 describe('checkSolution', () => {
-  // let initialPosition;
-  // beforeEach(() => {
-  //   initialPosition = new Coordinate();
-  // });
   it('should yield some result', () => {
     should.exist(checkSolution(['n']));
   });

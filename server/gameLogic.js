@@ -15,7 +15,6 @@ const checkSolution = (solution) => {
         return new Coordinate(0, 0);
     }
   });
-  // console.log('moves', moves);
 
   const checkPosition = (position, map) => {
     const lastRow = map.length - 1;
@@ -47,7 +46,6 @@ const checkSolution = (solution) => {
       currentPosition.x + cur.x,
       currentPosition.y + cur.y,
     );
-    // console.log(currentPosition);
     const newAcc = checkPosition(currentPosition, gameMap);
     return newAcc;
   }, 0);
