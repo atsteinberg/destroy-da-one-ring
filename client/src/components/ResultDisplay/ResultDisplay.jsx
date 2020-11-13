@@ -8,7 +8,7 @@ const messages = [
     icon: '🤷‍♀️',
   },
   {
-    text: 'Ring is destroyd.',
+    text: 'Ring is destroyed.',
     icon: '🎊',
   },
   {
