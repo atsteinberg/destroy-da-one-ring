@@ -24,6 +24,7 @@ const formatInput = (str) => {
 const InputForm = ({ setResult }) => {
   const [formatedInput, setFormatedInput] = useState([]);
   const [input, setInput] = useState('');
+  const [prevAttempts, setPrevAttempts] = useState([]);
 
   const onInputChanged = (e) => {
     setInput(e.target.value);
@@ -41,8 +42,14 @@ const InputForm = ({ setResult }) => {
       const result = await postSolution(formatedInput);
       if (isValidResult(result)) {
         setResult(result);
+        // TODO display previous attempts
+        setPrevAttempts((current) => [
+          ...current,
+          { attempt: formatedInput, result },
+        ]);
       }
     }
+    setInput('');
   };
 
   return (
