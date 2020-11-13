@@ -7,6 +7,7 @@
   --bg-color-dark: #111;
   --bg-color-light: #777;
   --bg-color-white: rgba(230, 230, 230, 0.8);
+  --bg-color-white-solid: rgb(230, 230, 230);
   --header-height: 10rem;
 }
 

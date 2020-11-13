@@ -71,7 +71,7 @@ const InputForm = ({ setResult }) => {
       {showAlert ? (
         <CustomAlert
           message={`Your input is invalid:\nplease input a comma-separated list of directions (n,e,s,w)`}
-          extraButtonText=", I won't do it again"
+          extraButtonText=", won't happen again"
           setShowAlert={(boolean) => setShowAlert(boolean)}
         />
       ) : (
