@@ -7,7 +7,7 @@ import InputForm from './components/InputForm/InputForm';
 import ResultDisplay from './components/ResultDisplay/ResultDisplay';
 
 function App() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState(null);
 
   return (
     <div className={styles.App}>

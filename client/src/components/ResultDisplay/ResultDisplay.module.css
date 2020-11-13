@@ -1,4 +1,6 @@
 .ResultDisplay {
+  display: flex;
+  flex-direction: column;
   height: 20rem;
   width: 50rem;
   background-color: var(--bg-color-white);
@@ -10,7 +12,11 @@
   padding: 3rem;
 }
 
-@media only screen and (max-width: 55rem) {
+.Icon {
+  font-size: 5rem;
+}
+
+@media only screen and (max-width: 50px) {
   .ResultDisplay {
     width: 90vw;
   }

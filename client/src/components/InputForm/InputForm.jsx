@@ -5,6 +5,10 @@ import styles from './InputForm.module.css';
 
 const POSSIBLE_INPUTS = ['n', 'e', 's', 'w'];
 
+const isValidResult = (result) => {
+  return result >= 0 && result <= 3;
+};
+
 const formatInput = (str) => {
   if (!str) return [];
   const inputs = str
@@ -35,9 +39,8 @@ const InputForm = ({ setResult }) => {
       );
     } else {
       const result = await postSolution(formatedInput);
-      console.log('result', result);
-      if (result) {
-        setResult(result.join(' '));
+      if (isValidResult(result)) {
+        setResult(result);
       }
     }
   };
