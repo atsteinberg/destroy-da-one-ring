@@ -1,4 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+  --font-color-light: #eee;
+  --font-color-dark: #777;
+  --font-color-black: #222;
+  --bg-color-dark: #111;
+  --bg-color-light: #777;
+  --bg-color-white: rgba(230, 230, 230, 0.8);
+  --header-height: 10rem;
+}
 
 *,
 *::before,
@@ -16,5 +26,5 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: "Ubunty", sans-serif;
+  font-family: 'Ubunty', sans-serif;
 }

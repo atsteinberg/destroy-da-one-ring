@@ -1,0 +1,11 @@
+.ResultDisplay {
+  height: 20rem;
+  width: 50rem;
+  background-color: var(--bg-color-white);
+  color: var(--font-color-black);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}

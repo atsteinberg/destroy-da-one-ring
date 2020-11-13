@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import postSolution from '../../apiService';
+import styles from './InputForm.module.css';
 
 const POSSIBLE_INPUTS = ['n', 'e', 's', 'w'];
 
@@ -39,15 +40,18 @@ const InputForm = ({ setResult }) => {
   };
 
   return (
-    <form onSubmit={(e) => onFormSubmitted(e)}>
+    <form className={styles.InputForm} onSubmit={(e) => onFormSubmitted(e)}>
       <input
+        className={styles.TextInput}
         type="text"
         value={input}
         onChange={onInputChanged}
         placeholder="n,e,s,w,..."
         spellCheck={false}
       />
-      <button type="submit">go</button>
+      <button type="submit" className={styles.Button}>
+        go
+      </button>
     </form>
   );
 };
