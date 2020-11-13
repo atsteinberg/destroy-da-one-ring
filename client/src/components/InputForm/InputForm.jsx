@@ -48,7 +48,6 @@ const InputForm = ({ setResult }) => {
           ...previousAttempts,
           { attempt: formatedInput, result },
         ];
-        console.log(previousAttempts);
       }
     }
     setInput('');
