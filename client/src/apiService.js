@@ -3,32 +3,37 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const PORT = process.env.SERVER_PORT || 3001;
-const ADDRESS = process.env.SERVER_ADDRESS || 'https://localhost';
+const ADDRESS = process.env.SERVER_ADDRESS || 'http://localhost';
 const PATH = process.env.POST_PATH || 'game';
 
 const apiURL = `${ADDRESS}:${PORT}/${PATH}`;
 
 const handleError = (err) => {
+  // TODO implement handle error
   console.error(err);
 };
 
-const postSolution = async (solution) => {
+const postSolution = (solution) => {
+  const body = JSON.stringify({
+    payload: solution,
+  });
   const options = {
-    header: {
-      method: 'POST',
-      contentType: 'application/json',
-      body: {
-        payload: solution,
-      },
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
     },
+    body,
   };
-  let result;
-  try {
-    result = await fetch(apiURL, options);
-  } catch (err) {
-    handleError(err);
-  }
-  return result ? result.payload : undefined;
+  return fetch(apiURL, options)
+    .then((res) => {
+      if (!res) throw new Error('no response from the server');
+      if (res.ok && res.status === 200) return res.json();
+      throw new Error('bad response from the server');
+    })
+    .then((res) => {
+      return res.payload;
+    })
+    .catch((err) => handleError(err));
 };
 
 export default postSolution;
