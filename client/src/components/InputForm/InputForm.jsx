@@ -35,7 +35,10 @@ const InputForm = ({ setResult }) => {
       );
     } else {
       const result = await postSolution(formatedInput);
-      setResult(result.join(' '));
+      console.log('result', result);
+      if (result) {
+        setResult(result.join(' '));
+      }
     }
   };
 
