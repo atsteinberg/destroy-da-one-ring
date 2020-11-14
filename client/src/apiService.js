@@ -32,7 +32,7 @@ const postSolution = (solution) => {
       throw new Error('bad response from the server');
     })
     .then((res) => {
-      return res.payload;
+      console.log(res.payload.path);
     })
     .catch((err) => handleError(err));
 };

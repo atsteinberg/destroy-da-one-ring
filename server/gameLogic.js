@@ -1,5 +1,5 @@
 const gameMap = require('./model.js');
-const { Coordinate, TimeSlice, TravelPath } = require('./classes');
+const { Coordinate, TimeSlice, TravelPath } = require('../lib/classes');
 
 const checkPosition = (coordinate, map) => {
   const lastRow = map.length - 1;
