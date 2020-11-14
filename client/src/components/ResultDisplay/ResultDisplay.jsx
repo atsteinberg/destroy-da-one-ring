@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { TravelPathPropType } from '../../classes';
 import styles from './ResultDisplay.module.css';
 import Map from '../Map/Map';
 
@@ -34,7 +34,7 @@ const ResultDisplay = ({ result }) => {
 };
 
 ResultDisplay.propTypes = {
-  result: PropTypes.number,
+  result: TravelPathPropType,
 };
 
 ResultDisplay.defaultProps = {
