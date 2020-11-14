@@ -12,17 +12,11 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
 
 - unzip the archive or <code>git clone https://github.com/atsteinberg/destroy-da-one-ring.git</code>
 
-- run <code>npm i</code>in both server and client subfolder, i.e. assuming you are in the main repo folder, run the following commands:
+- run <code>npm i</code>in both server and client subfolder, i.e. assuming you are in the main repo folder, run <code>cd client && npm i && cd ../server && npm i && cd ..</code>
 
-  ```bash
-  cd client
-  npm i
-  cd ../server
-  npm i
-  ```
-- run server: <code>npm run start</code>
+- run server: (from the main folder:) <code>cd server && npm run start && cd ..</code>
 
-- run client: <code>cd ../client && npm run start</code>
+- run client: (from the main folder:) <code>cd client && npm run start && cd ..</code>
 
 - enjoy
 
