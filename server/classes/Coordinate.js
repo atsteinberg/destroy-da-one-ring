@@ -8,6 +8,10 @@ class Coordinate {
       this.y = 5;
     }
   }
+
+  duplicate() {
+    return new Coordinate(this.x, this.y);
+  }
 }
 
 module.exports = Coordinate;
