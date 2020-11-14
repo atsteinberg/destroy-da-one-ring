@@ -112,4 +112,8 @@ describe('checkSolution', () => {
   it('should recognize when Frodo found the ring', () => {
     checkSolution(mocks.moves.pathToRing).finalResult.should.equal(1);
   });
+
+  it('should return truncated travel path', () => {
+    checkSolution(mocks.moves.deepWest).path.length.should.equal(1);
+  });
 });

@@ -7,6 +7,7 @@ const mocks = {
     southOffTheMap: ['s', 's', 's', 's', 's', 's'],
     eastOffTheMap,
     westOffTheMap: ['n', 'w'],
+    deepWest: ['w', 'w', 'w', 'w', 'w'],
     orcEncounters: [
       ['n', 'n', 'e'],
       ['s', 'e', 'e', 'e', 'n'],
