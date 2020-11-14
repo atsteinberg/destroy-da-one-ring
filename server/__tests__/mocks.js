@@ -57,6 +57,15 @@ const mocks = {
       result: 0,
     },
   },
+  travelPaths: {
+    defaultPath: {
+      path: [],
+    },
+  },
+};
+
+mocks.travelPaths.expandedPath = {
+  path: [mocks.timeSlices.defaultSlice],
 };
 
 module.exports = mocks;
