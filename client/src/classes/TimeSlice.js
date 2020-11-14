@@ -30,7 +30,7 @@ class TimeSlice {
   }
 }
 
-const TimeSlicePropType = PropTypes.objectOf({
+const TimeSlicePropType = PropTypes.shape({
   coordinate: CoordinatePropType.isRequired,
   result: PropTypes.number.isRequired,
 });

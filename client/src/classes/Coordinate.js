@@ -16,7 +16,7 @@ class Coordinate {
   }
 }
 
-const CoordinatePropType = PropTypes.objectOf({
+const CoordinatePropType = PropTypes.shape({
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
 });

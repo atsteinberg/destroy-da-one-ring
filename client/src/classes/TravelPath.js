@@ -29,7 +29,7 @@ class TravelPath {
   }
 }
 
-const TravelPathPropType = PropTypes.objectOf({
+const TravelPathPropType = PropTypes.shape({
   path: PropTypes.arrayOf(TimeSlicePropType),
 });
 
