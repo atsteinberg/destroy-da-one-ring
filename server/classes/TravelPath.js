@@ -22,6 +22,10 @@ class TravelPath {
     }
     return this.path[this.path.length - 1].result;
   }
+
+  static fromObj(obj) {
+    return new TravelPath(obj.path || []);
+  }
 }
 
 module.exports = TravelPath;
