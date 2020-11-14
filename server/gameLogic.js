@@ -1,19 +1,19 @@
 const gameMap = require('./model.js');
 const { Coordinate, TimeSlice } = require('./classes');
 
-const checkPosition = (position, map) => {
+const checkPosition = (coordinate, map) => {
   const lastRow = map.length - 1;
   if (lastRow < 0) throw new Error('invalid map');
   const lastColumn = map[0].length - 1;
   // TODO: add actual map validation (e.g. same column length, no invalid symbols))
   if (
-    position.y < 0 ||
-    position.y > lastRow ||
-    position.x < 0 ||
-    position.x > lastColumn
+    coordinate.y < 0 ||
+    coordinate.y > lastRow ||
+    coordinate.x < 0 ||
+    coordinate.x > lastColumn
   )
     return 3;
-  switch (map[position.y][position.x]) {
+  switch (map[coordinate.y][coordinate.x]) {
     case 'O':
       return 2;
     case 'D':
@@ -39,9 +39,17 @@ const checkSolution = (solution) => {
     }
   });
 
-  const currentPoint = new TimeSlice();
+  let currentPoint = new TimeSlice();
 
-  const travelHistory = moves.map((move) => {});
+  const travelHistory = moves.map((move) => {
+    let nextPoint;
+    if (currentPoint.result === 0) {
+      nextPoint = currentPoint.updatePosition(move);
+      nextPoint.result = checkPosition(nextPoint.coordinate, gameMap);
+      currentPoint = nextPoint;
+    }
+    return nextPoint || currentPoint;
+  });
   return travelHistory;
 };
 
