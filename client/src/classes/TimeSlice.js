@@ -1,4 +1,5 @@
-const Coordinate = require('./Coordinate');
+const PropTypes = require('prop-types');
+const { Coordinate, CoordinatePropType } = require('./Coordinate');
 
 class TimeSlice {
   constructor(coordinate, result) {
@@ -29,4 +30,12 @@ class TimeSlice {
   }
 }
 
-module.exports = TimeSlice;
+const TimeSlicePropType = PropTypes.objectOf({
+  coordinate: CoordinatePropType.isRequired,
+  result: PropTypes.number.isRequired,
+});
+
+module.exports = {
+  TimeSlice,
+  TimeSlicePropType,
+};

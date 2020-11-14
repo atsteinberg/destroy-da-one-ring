@@ -1,4 +1,5 @@
-const TimeSlice = require('./TimeSlice');
+const PropTypes = require('prop-types');
+const { TimeSlice, TimeSlicePropType } = require('./TimeSlice');
 
 class TravelPath {
   constructor(path) {
@@ -28,4 +29,11 @@ class TravelPath {
   }
 }
 
-module.exports = TravelPath;
+const TravelPathPropType = PropTypes.objectOf({
+  path: PropTypes.arrayOf(TimeSlicePropType),
+});
+
+module.exports = {
+  TravelPath,
+  TravelPathPropType,
+};

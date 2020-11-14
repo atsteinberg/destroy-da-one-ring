@@ -1,3 +1,5 @@
+const PropTypes = require('prop-types');
+
 class Coordinate {
   constructor(x, y) {
     if (arguments.length === 2) {
@@ -14,4 +16,12 @@ class Coordinate {
   }
 }
 
-module.exports = Coordinate;
+const CoordinatePropType = PropTypes.objectOf({
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+});
+
+module.exports = {
+  Coordinate,
+  CoordinatePropType,
+};
