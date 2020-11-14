@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { TravelPath } from './classes';
 
 dotenv.config();
 
@@ -32,7 +33,7 @@ const postSolution = (solution) => {
       throw new Error('bad response from the server');
     })
     .then((res) => {
-      console.log(res.payload.path);
+      return TravelPath.fromObj(res.payload).finalResult;
     })
     .catch((err) => handleError(err));
 };
