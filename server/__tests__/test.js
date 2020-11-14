@@ -4,8 +4,6 @@ const { Coordinate } = require('../classes');
 const mocks = require('./mocks');
 const TimeSlice = require('../classes/TimeSlice');
 
-let solution;
-
 const getFinalResult = (travelPath) => {
   return travelPath[travelPath.length - 1].result;
 };
