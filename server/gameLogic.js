@@ -1,5 +1,5 @@
 const gameMap = require('./model.js');
-const { Coordinate, TimeSlice } = require('./classes');
+const { Coordinate, TimeSlice, TravelPath } = require('./classes');
 
 const checkPosition = (coordinate, map) => {
   const lastRow = map.length - 1;
@@ -50,7 +50,7 @@ const checkSolution = (solution) => {
     }
     return nextPoint || currentPoint;
   });
-  return travelHistory;
+  return new TravelPath(travelHistory);
 };
 
 module.exports = checkSolution;
