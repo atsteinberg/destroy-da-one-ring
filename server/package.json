@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha __tests__/gameLogic.test",
+    "test": "mocha __tests__/test",
     "run": "nodemon"
   },
   "keywords": [],
