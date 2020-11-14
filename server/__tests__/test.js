@@ -113,7 +113,7 @@ describe('checkSolution', () => {
     checkSolution(mocks.moves.pathToRing).finalResult.should.equal(1);
   });
 
-  it('should return truncated travel path', () => {
+  it('should truncate travel path', () => {
     checkSolution(mocks.moves.deepWest).path.length.should.equal(1);
   });
 });
