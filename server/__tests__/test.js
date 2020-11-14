@@ -1,8 +1,7 @@
 const should = require('chai').should();
 const checkSolution = require('../gameLogic');
-const { Coordinate } = require('../classes');
+const { Coordinate, TimeSlice, TravelPath } = require('../classes');
 const mocks = require('./mocks');
-const TimeSlice = require('../classes/TimeSlice');
 
 const getFinalResult = (travelPath) => {
   return travelPath[travelPath.length - 1].result;
@@ -62,6 +61,26 @@ describe('TimeSlice', () => {
     const newTimeSlice = new TimeSlice(new Coordinate(3, 4), 2);
     const failedUpdate = newTimeSlice.updatePosition(new Coordinate(1, 1));
     failedUpdate.should.deep.equal(newTimeSlice);
+  });
+});
+
+describe('TravelPath', () => {
+  it('should have travelpaths as instances', () => {
+    const newPath = new TravelPath();
+    newPath.should.be.instanceOf(TravelPath);
+    newPath.should.deep.equal(mocks.travelPaths.defaultPath);
+  });
+
+  it('should add slices to path', () => {
+    const newPath = new TravelPath();
+    const slice = new TimeSlice();
+    const expandedPath = newPath.add(slice);
+    expandedPath.should.deep.equal(mocks.travelPaths.expandedPath);
+  });
+
+  it('should return the final result', () => {
+    const newPath = new TravelPath([new TimeSlice(new Coordinate(3, 4), 2)]);
+    newPath.finalResult.should.equal(2);
   });
 });
 
