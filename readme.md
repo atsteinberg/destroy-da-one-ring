@@ -6,13 +6,13 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
 
 ## Screen Shots
 
-![screenshots](./screenshots.png)
+![screenshots](/Users/dev/Documents/projects/destroy-da-one-ring/screenshots.png)
 
 ## Getting started
 
-- unzip the archive or <code>git clone https://github.com/atsteinberg/destroy-da-one-ring.git</code>
+* unzip the archive or <code>git clone https://github.com/atsteinberg/destroy-da-one-ring.git</code>
 
-- run <code>npm i</code>in both server and client subfolder, i.e. assuming you are in the main repo folder, run the following commands:
+* run <code>npm i</code>in both server and client subfolder, i.e. assuming you are in the main repo folder, run the following commands:
 
   ```bash
   cd client
@@ -21,12 +21,23 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
   npm i
   ```
 
-- enjoy
+* enjoy
+
+## To do
+
+There are a few obvious things that could be improved, in particular showing a history of previous attempts. I took the 'nothing is persisted between requests' statement to mean that history should not be shown, but this functionality would be easy to add.
 
 ## Built with
 
-- [react](https://reactjs.org)
+* [react](https://reactjs.org)
 
-- vanilla JS for the game-logic
+  I realize that using react might be a bit of an overkill for this game, but I thought it might be good idea to employ some more technology that might  be used on the job. Especially since I also used...
 
-- [Koa](https://koajs.com/)
+* vanilla JS for the game-logic
+
+* [Koa](https://koajs.com/)
+
+  
+
+  
+
