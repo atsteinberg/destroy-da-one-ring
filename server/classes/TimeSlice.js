@@ -13,6 +13,20 @@ class TimeSlice {
       this.result = 0;
     }
   }
+
+  duplicate() {
+    return new TimeSlice(this.coordinate.duplicate(), this.result);
+  }
+
+  updatePosition(move) {
+    const safeMove = { x: 0, y: 0, ...move };
+    const newSlice = this.duplicate();
+    if (newSlice.result === 0) {
+      newSlice.coordinate.x += safeMove.x;
+      newSlice.coordinate.y += safeMove.y;
+    }
+    return newSlice;
+  }
 }
 
 module.exports = TimeSlice;
