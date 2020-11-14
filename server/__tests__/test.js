@@ -3,10 +3,6 @@ const checkSolution = require('../gameLogic');
 const { Coordinate, TimeSlice, TravelPath } = require('../classes');
 const mocks = require('./mocks');
 
-const getFinalResult = (travelPath) => {
-  return travelPath[travelPath.length - 1].result;
-};
-
 describe('Coordinate', () => {
   it('should have coordinates as instances', () => {
     const newCoordinate = new Coordinate(0, 0);
@@ -90,21 +86,21 @@ describe('checkSolution', () => {
   });
 
   it('should recognize when Frodo is off the map', () => {
-    getFinalResult(checkSolution(mocks.moves.northOffTheMap)).should.equal(3);
-    getFinalResult(checkSolution(mocks.moves.southOffTheMap)).should.equal(3);
-    getFinalResult(checkSolution(mocks.moves.westOffTheMap)).should.equal(3);
-    getFinalResult(checkSolution(mocks.moves.eastOffTheMap)).should.equal(3);
+    checkSolution(mocks.moves.northOffTheMap).finalResult.should.equal(3);
+    checkSolution(mocks.moves.southOffTheMap).finalResult.should.equal(3);
+    checkSolution(mocks.moves.westOffTheMap).finalResult.should.equal(3);
+    checkSolution(mocks.moves.eastOffTheMap).finalResult.should.equal(3);
   });
 
   it('should recognize whether Frodo encountered an orc', () => {
-    getFinalResult(checkSolution(mocks.moves.orcEncounters[0])).should.equal(2);
-    getFinalResult(checkSolution(mocks.moves.orcFreeTravel[0])).should.equal(0);
-    getFinalResult(checkSolution(mocks.moves.orcEncounters[1])).should.equal(2);
-    getFinalResult(checkSolution(mocks.moves.orcFreeTravel[1])).should.equal(0);
-    getFinalResult(checkSolution(mocks.moves.orcEncounters[2])).should.equal(2);
+    checkSolution(mocks.moves.orcEncounters[0]).finalResult.should.equal(2);
+    checkSolution(mocks.moves.orcFreeTravel[0]).finalResult.should.equal(0);
+    checkSolution(mocks.moves.orcEncounters[1]).finalResult.should.equal(2);
+    checkSolution(mocks.moves.orcFreeTravel[1]).finalResult.should.equal(0);
+    checkSolution(mocks.moves.orcEncounters[2]).finalResult.should.equal(2);
   });
 
   it('should recognize when Frodo found the ring', () => {
-    getFinalResult(checkSolution(mocks.moves.pathToRing)).should.equal(1);
+    checkSolution(mocks.moves.pathToRing).finalResult.should.equal(1);
   });
 });
