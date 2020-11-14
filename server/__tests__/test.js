@@ -1,6 +1,6 @@
 const should = require('chai').should();
 const checkSolution = require('../gameLogic');
-const { Coordinate, TimeSlice, TravelPath } = require('../../lib/classes');
+const { Coordinate, TimeSlice, TravelPath } = require('../../client/src/classes');
 const mocks = require('./mocks');
 
 describe('Coordinate', () => {
