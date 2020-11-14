@@ -47,10 +47,13 @@ const checkSolution = (solution) => {
       nextPoint = currentPoint.updatePosition(move);
       nextPoint.result = checkPosition(nextPoint.coordinate, gameMap);
       currentPoint = nextPoint;
+    } else {
+      nextPoint = currentPoint.duplicate();
+      nextPoint.result = null;
     }
-    return nextPoint || currentPoint;
+    return nextPoint;
   });
-  return new TravelPath(travelHistory);
+  return new TravelPath(travelHistory.filter((point) => point.result !== null));
 };
 
 module.exports = checkSolution;
