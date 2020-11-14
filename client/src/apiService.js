@@ -10,7 +10,7 @@ const PATH = process.env.POST_PATH || 'game';
 const apiURL = `${ADDRESS}:${PORT}/${PATH}`;
 
 const handleError = (err) => {
-  // TODO implement handle error
+  // TODO implement error handler
   // eslint-disable-next-line no-console
   console.error(err);
 };
@@ -32,9 +32,7 @@ const postSolution = (solution) => {
       if (res.ok && res.status === 200) return res.json();
       throw new Error('bad response from the server');
     })
-    .then((res) => {
-      return TravelPath.fromObj(res.payload).finalResult;
-    })
+    .then((res) => TravelPath.fromObj(res.payload))
     .catch((err) => handleError(err));
 };
 

@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import postSolution from '../../apiService';
 import styles from './InputForm.module.css';
 import CustomAlert from '../CustomAlert/CustomAlert';
+import { TravelPath } from '../../classes';
 
 const POSSIBLE_INPUTS = ['n', 'e', 's', 'w'];
 
 const isValidResult = (result) => {
-  return result >= 0 && result <= 3;
+  return result instanceof TravelPath;
 };
 
 const formatInput = (str) => {
