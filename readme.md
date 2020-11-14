@@ -20,6 +20,9 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
   cd ../server
   npm i
   ```
+- run server: <code>npm run start</code>
+
+- run client: <code>cd ../client && npm run start</code>
 
 - enjoy
 
