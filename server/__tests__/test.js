@@ -78,6 +78,11 @@ describe('TravelPath', () => {
     const newPath = new TravelPath([new TimeSlice(new Coordinate(3, 4), 2)]);
     newPath.finalResult.should.equal(2);
   });
+
+  it('should create a TravelPath instance from an object', () => {
+    const newPath = TravelPath.fromObj(mocks.travelPaths.defaultPath);
+    newPath.should.deep.equal(new TravelPath());
+  });
 });
 
 describe('checkSolution', () => {
