@@ -14,7 +14,7 @@ function App() {
       <header>
         <Header title="Destroy Da One Ring" />
       </header>
-      <section>
+      <main>
         <div className={styles.MainContainer}>
           <div className={styles.InputFormContainer}>
             <InputForm setResult={setResult} />
@@ -23,7 +23,7 @@ function App() {
             <ResultDisplay result={result} />
           </div>
         </div>
-      </section>
+      </main>
     </div>
   );
 }
