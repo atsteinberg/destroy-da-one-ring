@@ -37,4 +37,5 @@
   position: absolute;
   /* bottom: calc((var(--map-size) - var(--frodo-height)) / 2); */
   transform: translateY(-50%);
+  opacity: 0;
 }

@@ -21,8 +21,7 @@ const messages = [
   },
 ];
 
-const ResultDisplay = ({ result, setShowResult }) => {
-  const handleDismiss = () => setShowResult(false);
+const ResultDisplay = ({ result, handleDismiss }) => {
   if (result !== null) {
     return (
       <div
@@ -42,7 +41,7 @@ const ResultDisplay = ({ result, setShowResult }) => {
 
 ResultDisplay.propTypes = {
   result: PropTypes.number.isRequired,
-  setShowResult: PropTypes.func.isRequired,
+  handleDismiss: PropTypes.func.isRequired,
 };
 
 export default ResultDisplay;

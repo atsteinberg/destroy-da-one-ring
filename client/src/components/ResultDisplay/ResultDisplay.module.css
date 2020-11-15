@@ -16,6 +16,10 @@
   padding: 3rem;
 }
 
+.ResultDisplay:focus {
+  outline: none;
+}
+
 .Icon {
   font-size: 5rem;
 }
