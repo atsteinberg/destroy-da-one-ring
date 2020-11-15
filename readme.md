@@ -28,8 +28,6 @@ There are a few obvious things that could be improved, in particular showing a h
 
 - [react](https://reactjs.org)
 
-  I realize that using react might be a bit of an overkill for this game, but I thought it might be good idea to employ some more technology that might be used on the job. Especially since I also used...
-
-- vanilla JS for the game-logic
+- vanilla ES6 JS for the game-logic
 
 - [Koa](https://koajs.com/)
