@@ -4,7 +4,7 @@ import styles from './App.module.css';
 
 import Header from './components/Header/Header';
 import InputForm from './components/InputForm/InputForm';
-import ResultDisplay from './components/ResultDisplay/ResultDisplay';
+import Map from './components/Map/Map';
 
 function App() {
   const [result, setResult] = useState(null);
@@ -20,7 +20,7 @@ function App() {
             <InputForm setResult={setResult} />
           </div>
           <div className={styles.ResultContainer}>
-            <ResultDisplay result={result} />
+            <Map path={result} />
           </div>
         </div>
       </main>
