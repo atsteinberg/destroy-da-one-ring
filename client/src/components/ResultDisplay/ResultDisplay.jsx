@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './ResultDisplay.module.css';
 
 const messages = [
@@ -22,6 +22,12 @@ const messages = [
 ];
 
 const ResultDisplay = ({ result, handleDismiss }) => {
+  const resultDisplay = useRef();
+  useEffect(() => {
+    if (resultDisplay.current) {
+      resultDisplay.current.focus();
+    }
+  });
   if (result !== null) {
     return (
       <div
@@ -30,6 +36,7 @@ const ResultDisplay = ({ result, handleDismiss }) => {
         onKeyDown={handleDismiss}
         role="button"
         tabIndex={0}
+        ref={resultDisplay}
       >
         <div className={styles.Icon}>{messages[result].icon}</div>
         <div className={styles.Text}>{messages[result].text}</div>

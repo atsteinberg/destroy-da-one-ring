@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import postSolution from '../../apiService';
 import styles from './InputForm.module.css';
@@ -31,6 +31,12 @@ const InputForm = ({ setResult }) => {
   const [formatedInput, setFormatedInput] = useState([]);
   const [input, setInput] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const inputField = useRef();
+  useEffect(() => {
+    if (inputField.current) {
+      inputField.current.focus();
+    }
+  });
 
   const onInputChanged = (e) => {
     setInput(e.target.value);
@@ -66,6 +72,7 @@ const InputForm = ({ setResult }) => {
           onChange={onInputChanged}
           placeholder="n,e,s,w,..."
           spellCheck={false}
+          ref={inputField}
         />
         <button type="submit" className={styles.Button} disabled={!enabled}>
           go!
