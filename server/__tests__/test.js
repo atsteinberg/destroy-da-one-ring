@@ -114,6 +114,6 @@ describe('checkSolution', () => {
   });
 
   it('should truncate travel path', () => {
-    checkSolution(mocks.moves.deepWest).path.length.should.equal(1);
+    checkSolution(mocks.moves.deepWest).path.length.should.equal(2);
   });
 });

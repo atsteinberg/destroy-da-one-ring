@@ -53,7 +53,10 @@ const checkSolution = (solution) => {
     }
     return nextPoint;
   });
-  return new TravelPath(travelHistory.filter((point) => point.result !== null));
+  return new TravelPath([
+    new TimeSlice(),
+    ...travelHistory.filter((point) => point.result !== null),
+  ]);
 };
 
 module.exports = checkSolution;
