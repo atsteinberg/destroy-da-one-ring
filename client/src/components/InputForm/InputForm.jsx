@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import postSolution from '../../apiService';
 import styles from './InputForm.module.css';
 import CustomAlert from '../CustomAlert/CustomAlert';
 import { TravelPath } from '../../classes';
+import EnabledContext from '../../contexts/EnabledContext';
 
 const POSSIBLE_INPUTS = ['n', 'e', 's', 'w'];
 
@@ -26,6 +27,7 @@ const formatInput = (str) => {
 let previousAttempts = [];
 
 const InputForm = ({ setResult }) => {
+  const { enabled } = useContext(EnabledContext);
   const [formatedInput, setFormatedInput] = useState([]);
   const [input, setInput] = useState('');
   const [showAlert, setShowAlert] = useState(false);
@@ -65,8 +67,8 @@ const InputForm = ({ setResult }) => {
           placeholder="n,e,s,w,..."
           spellCheck={false}
         />
-        <button type="submit" className={styles.Button}>
-          go
+        <button type="submit" className={styles.Button} disabled={!enabled}>
+          go!
         </button>
       </form>
       {showAlert ? (

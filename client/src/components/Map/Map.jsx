@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Map.module.css';
 import { TravelPathPropType } from '../../classes/TravelPath';
 import ResultDisplay from '../ResultDisplay/ResultDisplay';
+import EnabledContext from '../../contexts/EnabledContext';
 
 const calculateRem = (c) => {
   const unit = 3;
@@ -10,6 +11,7 @@ const calculateRem = (c) => {
 };
 
 const Map = ({ travel, speed }) => {
+  const { setEnabled } = useContext(EnabledContext);
   const [showResult, setShowResult] = useState(false);
   const [newTravel, setNewTravel] = useState(travel);
   useEffect(() => {
@@ -62,12 +64,14 @@ const Map = ({ travel, speed }) => {
       animation.onfinish = () => {
         setNewTravel(null);
         setShowResult(true);
+        setEnabled(false);
       };
     }
   });
 
   const handleDismissResult = () => {
     setShowResult(false);
+    setEnabled(true);
     frodo.current.animate([{ opacity: 1 }, { opacity: 0 }], {
       duration: 1000,
       fill: 'forwards',
