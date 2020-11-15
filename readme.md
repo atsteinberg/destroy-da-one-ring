@@ -20,10 +20,6 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
 
 - enjoy
 
-## To do
-
-There are a few obvious things that could be improved, in particular showing a history of previous attempts. I took the 'nothing is persisted between requests' statement to mean that history should not be shown, but this functionality would be easy to add.
-
 ## Built with
 
 - [react](https://reactjs.org)
