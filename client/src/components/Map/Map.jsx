@@ -1,17 +1,84 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Map.module.css';
 import { TravelPathPropType } from '../../classes/TravelPath';
-// import Frodo from '../../assets/mediumFrodo.png';
+import ResultDisplay from '../ResultDisplay/ResultDisplay';
 
-const Map = ({ path, speed }) => {
-  console.log(path, speed);
-  return path ? (
+const calculateRem = (c) => {
+  const unit = 3;
+  return `${c * unit}rem`;
+};
+
+const Map = ({ travel, speed }) => {
+  const [showResult, setShowResult] = useState(false);
+  const [newTravel, setNewTravel] = useState(travel);
+  useEffect(() => {
+    setNewTravel(travel);
+  }, [travel]);
+
+  // Frodo animation
+
+  let relativePositions = useMemo(() => [], []);
+  if (newTravel) {
+    relativePositions = travel.path.map((slice) => {
+      return {
+        top: calculateRem(slice.coordinate.y),
+        left: calculateRem(slice.coordinate.x),
+      };
+    });
+  } else {
+    relativePositions = [
+      {
+        top: calculateRem(5),
+        left: calculateRem(0),
+      },
+    ];
+  }
+
+  const frodoAnimation = useMemo(
+    () => [
+      { opacity: 0, ...relativePositions[0] },
+      { opacity: 1, ...relativePositions[0] },
+      ...relativePositions,
+    ],
+    [relativePositions],
+  );
+
+  const frodoTiming = useMemo(
+    () => ({
+      duration: 100 * speed * frodoAnimation.length,
+      iterations: 1,
+      fill: 'forwards',
+      endDelay: 100 * speed,
+    }),
+    [speed, frodoAnimation],
+  );
+
+  const frodo = useRef();
+  useEffect(() => {
+    if (frodo.current && newTravel) {
+      const animation = frodo.current.animate(frodoAnimation, frodoTiming);
+      animation.onfinish = () => {
+        setNewTravel(null);
+        setShowResult(true);
+      };
+    }
+  });
+
+  return travel ? (
     <div className={styles.MapContainer}>
       <div className={styles.Map}>
-        <div className={styles.FrodoImage} />
+        <div className={styles.FrodoImage} id="Frodo" ref={frodo} />
         {/* <img alt="Frodo-icon" className={styles.Frodo} src={Frodo} width="30" /> */}
       </div>
+      {showResult ? (
+        <ResultDisplay
+          setShowResult={setShowResult}
+          result={travel.finalResult}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   ) : (
     <></>
@@ -19,12 +86,13 @@ const Map = ({ path, speed }) => {
 };
 
 Map.propTypes = {
-  path: TravelPathPropType.isRequired,
+  travel: TravelPathPropType,
   speed: PropTypes.number,
 };
 
 Map.defaultProps = {
-  speed: 10,
+  travel: null,
+  speed: 5,
 };
 
 export default Map;

@@ -20,7 +20,7 @@ function App() {
             <InputForm setResult={setResult} />
           </div>
           <div className={styles.ResultContainer}>
-            <Map path={result} />
+            <Map travel={result} />
           </div>
         </div>
       </main>
