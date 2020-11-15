@@ -35,6 +35,6 @@
   width: var(--frodo-width);
   height: var(--frodo-height);
   position: absolute;
-  bottom: calc((var(--map-size) - var(--frodo-height)) / 2);
+  /* bottom: calc((var(--map-size) - var(--frodo-height)) / 2); */
   transform: translateY(-50%);
 }
