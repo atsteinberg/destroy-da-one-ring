@@ -6,7 +6,7 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
 
 ## Screen Shots
 
-![screenshots](/Users/dev/Documents/projects/destroy-da-one-ring/screenshots.png)
+![screenshots](./screenshots2.png)
 
 ## Getting started
 
