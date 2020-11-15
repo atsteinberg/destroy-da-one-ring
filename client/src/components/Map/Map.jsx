@@ -40,6 +40,7 @@ const Map = ({ travel, speed }) => {
       { opacity: 0, ...relativePositions[0] },
       { opacity: 1, ...relativePositions[0] },
       ...relativePositions,
+      { opacity: 1, ...relativePositions[relativePositions.length - 1] },
     ],
     [relativePositions],
   );
@@ -65,6 +66,14 @@ const Map = ({ travel, speed }) => {
     }
   });
 
+  const handleDismissResult = () => {
+    setShowResult(false);
+    frodo.current.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 1000,
+      fill: 'forwards',
+    });
+  };
+
   return travel ? (
     <div className={styles.MapContainer}>
       <div className={styles.Map}>
@@ -73,7 +82,7 @@ const Map = ({ travel, speed }) => {
       </div>
       {showResult ? (
         <ResultDisplay
-          setShowResult={setShowResult}
+          handleDismiss={handleDismissResult}
           result={travel.finalResult}
         />
       ) : (
