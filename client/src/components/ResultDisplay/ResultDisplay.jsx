@@ -1,32 +1,39 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { TravelPathPropType } from '../../classes';
 import styles from './ResultDisplay.module.css';
-import Map from '../Map/Map';
 
-// const messages = [
-//   {
-//     text: 'Nothing was found.',
-//     icon: '🤷‍♀️',
-//   },
-//   {
-//     text: 'Ring is destroyed.',
-//     icon: '🎊',
-//   },
-//   {
-//     text: 'Orc found, Frodo dead.',
-//     icon: '☠️',
-//   },
-//   {
-//     text: 'Frodo wandered off the map.',
-//     icon: '😵',
-//   },
-// ];
+const messages = [
+  {
+    text: 'Nothing was found.',
+    icon: '🤷‍♀️',
+  },
+  {
+    text: 'Ring is destroyed.',
+    icon: '🎊',
+  },
+  {
+    text: 'Orc found, Frodo dead.',
+    icon: '☠️',
+  },
+  {
+    text: 'Frodo wandered off the map.',
+    icon: '😵',
+  },
+];
 
-const ResultDisplay = ({ result }) => {
+const ResultDisplay = ({ result, setShowResult }) => {
+  const handleDismiss = () => setShowResult(false);
   if (result !== null) {
     return (
-      <div className={styles.ResultDisplay}>
-        <Map path={result} />
+      <div
+        className={styles.ResultDisplay}
+        onClick={handleDismiss}
+        onKeyDown={handleDismiss}
+        role="button"
+        tabIndex={0}
+      >
+        <div className={styles.Icon}>{messages[result].icon}</div>
+        <div className={styles.Text}>{messages[result].text}</div>
       </div>
     );
   }
@@ -34,11 +41,8 @@ const ResultDisplay = ({ result }) => {
 };
 
 ResultDisplay.propTypes = {
-  result: TravelPathPropType,
-};
-
-ResultDisplay.defaultProps = {
-  result: null,
+  result: PropTypes.number.isRequired,
+  setShowResult: PropTypes.func.isRequired,
 };
 
 export default ResultDisplay;
