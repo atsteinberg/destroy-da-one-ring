@@ -11,7 +11,7 @@
   left: var(--map-padding);
   min-height: var(--map-size);
   min-width: var(--map-size);
-  background-image: url('../../assets/map.png');
+  background-image: url('../../assets/map2.png');
   background-size: cover;
   border-radius: 5px;
 }
