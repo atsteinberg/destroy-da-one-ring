@@ -38,7 +38,6 @@ const InputForm = ({ setResult }) => {
   const onFormSubmitted = async (e) => {
     e.preventDefault();
     if (formatedInput.length === 0) {
-      // TODO: replace by custom alert
       setShowAlert(true);
     } else {
       const result = await postSolution(formatedInput);
@@ -52,6 +51,7 @@ const InputForm = ({ setResult }) => {
       }
     }
     setInput('');
+    setFormatedInput('');
   };
 
   return (
