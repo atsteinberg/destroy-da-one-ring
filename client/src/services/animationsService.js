@@ -3,6 +3,7 @@ const calculateRem = (c, unit) => {
 };
 
 const calculateAnimation = (travel, unit, speed) => {
+  if (!travel) return [null, null];
   const relativePositions = travel.path.map((slice) => {
     return {
       top: calculateRem(slice.coordinate.y, unit),

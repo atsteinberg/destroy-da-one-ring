@@ -16,11 +16,11 @@ const Map = ({ travel, speed }) => {
     setNewTravel(travel);
   }, [travel]);
 
-  let frodoAnimation;
-  let frodoTiming;
-  if (newTravel) {
-    [frodoAnimation, frodoTiming] = calculateAnimation(newTravel, UNIT, speed);
-  }
+  const [frodoAnimation, frodoTiming] = calculateAnimation(
+    newTravel,
+    UNIT,
+    speed,
+  );
 
   const frodo = useRef();
   useEffect(() => {
