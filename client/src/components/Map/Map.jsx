@@ -28,13 +28,6 @@ const Map = ({ travel, speed }) => {
         left: calculateRem(slice.coordinate.x),
       };
     });
-  } else {
-    relativePositions = [
-      {
-        top: calculateRem(5),
-        left: calculateRem(0),
-      },
-    ];
   }
 
   const frodoAnimation = useMemo(
