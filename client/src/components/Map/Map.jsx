@@ -1,14 +1,12 @@
-import React, { useEffect, useRef, useState, useMemo, useContext } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Map.module.css';
 import { TravelPathPropType } from '../../classes/TravelPath';
 import ResultDisplay from '../ResultDisplay/ResultDisplay';
 import EnabledContext from '../../contexts/EnabledContext';
+import calculateAnimation from '../../services/animationsService';
 
-const calculateRem = (c) => {
-  const unit = 3;
-  return `${c * unit}rem`;
-};
+const UNIT = 3;
 
 const Map = ({ travel, speed }) => {
   const { setEnabled } = useContext(EnabledContext);
@@ -18,37 +16,11 @@ const Map = ({ travel, speed }) => {
     setNewTravel(travel);
   }, [travel]);
 
-  // Frodo animation
-
-  let relativePositions = useMemo(() => [], []);
+  let frodoAnimation;
+  let frodoTiming;
   if (newTravel) {
-    relativePositions = travel.path.map((slice) => {
-      return {
-        top: calculateRem(slice.coordinate.y),
-        left: calculateRem(slice.coordinate.x),
-      };
-    });
+    [frodoAnimation, frodoTiming] = calculateAnimation(newTravel, UNIT, speed);
   }
-
-  const frodoAnimation = useMemo(
-    () => [
-      { opacity: 0, ...relativePositions[0] },
-      { opacity: 1, ...relativePositions[0] },
-      ...relativePositions,
-      { opacity: 1, ...relativePositions[relativePositions.length - 1] },
-    ],
-    [relativePositions],
-  );
-
-  const frodoTiming = useMemo(
-    () => ({
-      duration: 100 * speed * frodoAnimation.length,
-      iterations: 1,
-      fill: 'forwards',
-      endDelay: 100 * speed,
-    }),
-    [speed, frodoAnimation],
-  );
 
   const frodo = useRef();
   useEffect(() => {
