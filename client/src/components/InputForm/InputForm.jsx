@@ -24,11 +24,10 @@ const formatInput = (str) => {
     : [];
 };
 
-let previousAttempts = [];
+// let previousAttempts = [];
 
 const InputForm = ({ setResult }) => {
   const { enabled } = useContext(EnabledContext);
-  const [formatedInput, setFormatedInput] = useState([]);
   const [input, setInput] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const inputField = useRef();
@@ -40,11 +39,11 @@ const InputForm = ({ setResult }) => {
 
   const onInputChanged = (e) => {
     setInput(e.target.value);
-    setFormatedInput(formatInput(e.target.value));
   };
 
   const onFormSubmitted = async (e) => {
     e.preventDefault();
+    const formatedInput = formatInput(input);
     if (formatedInput.length === 0) {
       setShowAlert(true);
     } else {
@@ -52,14 +51,13 @@ const InputForm = ({ setResult }) => {
       if (isValidResult(result)) {
         setResult(result);
         // TODO display previous attempts
-        previousAttempts = [
-          ...previousAttempts,
-          { attempt: formatedInput, result },
-        ];
+        // previousAttempts = [
+        //   ...previousAttempts,
+        //   { attempt: formatedInput, result },
+        // ];
       }
     }
     setInput('');
-    setFormatedInput('');
   };
 
   return (
