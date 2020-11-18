@@ -9,16 +9,16 @@
   position: absolute;
   top: var(--map-padding);
   left: var(--map-padding);
-  min-height: var(--map-size);
   min-width: var(--map-size);
+  min-height: var(--map-size);
   background-image: url('../../assets/map2.png');
   background-size: cover;
   border-radius: 5px;
 }
 .MapContainer {
   position: relative;
-  min-height: calc(var(--map-size) + 2 * var(--map-padding));
   min-width: calc(var(--map-size) + 2 * var(--map-padding));
+  min-height: calc(var(--map-size) + 2 * var(--map-padding));
   background-color: var(--bg-color-white);
   border-radius: 5px;
 }
@@ -29,13 +29,13 @@
 }
 
 .FrodoImage {
-  background-image: url('../../assets/mediumFrodo.png');
-  background-size: contain;
-  background-position: center;
+  position: absolute;
   width: var(--frodo-width);
   height: var(--frodo-height);
-  position: absolute;
+  background-image: url('../../assets/mediumFrodo.png');
+  background-position: center;
+  background-size: contain;
+  opacity: 0;
   /* bottom: calc((var(--map-size) - var(--frodo-height)) / 2); */
   transform: translateY(-50%);
-  opacity: 0;
 }
