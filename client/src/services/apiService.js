@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { TravelPath } from './classes';
+import { TravelPath } from '../classes';
 
 dotenv.config();
 

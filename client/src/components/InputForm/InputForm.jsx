@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import postSolution from '../../apiService';
+import postSolution from '../../services/apiService';
 import styles from './InputForm.module.css';
 import CustomAlert from '../CustomAlert/CustomAlert';
 import { TravelPath } from '../../classes';
