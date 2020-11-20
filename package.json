@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:all": "concurrently \"node server/index.js\" \"cd client && npx react-scripts start\""
+    "start": "concurrently \"node server/index.js\" \"cd client && npx react-scripts start\""
   },
   "keywords": [],
   "author": "",
