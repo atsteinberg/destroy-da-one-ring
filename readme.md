@@ -10,6 +10,8 @@ Input a comma separated list of directions ('n', 'e', 's', 'w') to guide Frodo t
 
 ## Getting started
 
+- [test-drive](https://destroy-da-one-ring.herokuapp.com)
+
 - unzip the archive or <code>git clone https://github.com/atsteinberg/destroy-da-one-ring.git</code>
 
 * run <code>npm i</code>in both server and client subfolder, i.e. assuming you are in the main repo folder, run <code>cd client && npm i && cd ../server && npm i && cd ..</code>
