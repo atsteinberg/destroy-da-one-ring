@@ -29,7 +29,6 @@ const Map = ({ travel, speed }) => {
       animation.onfinish = () => {
         setNewTravel(null);
         setShowResult(true);
-        setEnabled(false);
       };
     }
   });

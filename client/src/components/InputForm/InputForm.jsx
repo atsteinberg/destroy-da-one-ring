@@ -27,7 +27,7 @@ const formatInput = (str) => {
 // let previousAttempts = [];
 
 const InputForm = ({ setResult }) => {
-  const { enabled } = useContext(EnabledContext);
+  const { enabled, setEnabled } = useContext(EnabledContext);
   const [input, setInput] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const inputField = useRef();
@@ -49,6 +49,7 @@ const InputForm = ({ setResult }) => {
     } else {
       const result = await postSolution(formatedInput);
       if (isValidResult(result)) {
+        setEnabled(false);
         setResult(result);
         // TODO display previous attempts
         // previousAttempts = [
