@@ -6,9 +6,9 @@
 
 .TextInput {
   flex-grow: 2;
+  padding: 0 1rem;
   border: none;
   border-radius: 5px 0px 0px 5px;
-  padding: 0 1rem;
 }
 
 .TextInput:focus {
@@ -18,9 +18,9 @@
 .Button {
   min-width: 10rem;
   padding: 1rem 2rem;
-  border-radius: 0px 5px 5px 0px;
   border: none;
   background-color: var(--bg-color-light);
+  border-radius: 0px 5px 5px 0px;
   color: var(--font-color-light);
   cursor: pointer;
 }

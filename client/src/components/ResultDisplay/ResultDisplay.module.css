@@ -1,23 +1,28 @@
 .ResultDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
-  flex-direction: column;
+  width: 20rem;
   height: 20rem;
-  width: 50rem;
-  background-color: var(--bg-color-white);
-  color: var(--font-color-black);
-  border-radius: 5px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3rem;
+  background-color: var(--bg-color-white);
+  border-radius: 5px;
+  color: var(--font-color-black);
+  transform: translate(-50%, -50%);
+}
+
+.ResultDisplay:focus {
+  outline: none;
 }
 
 .Icon {
   font-size: 5rem;
 }
 
-@media only screen and (max-width: 500px) {
-  .ResultDisplay {
-    width: 90vw;
-  }
+.Text {
+  text-align: center;
 }

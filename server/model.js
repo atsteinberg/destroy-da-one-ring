@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 const gameMap = [
   ['-', '-', '-', 'O', '-', '-', '-', '-', '-', 'O'],
   ['-', 'O', '-', '-', '-', 'O', '-', 'D', '-', '-'],
@@ -11,16 +12,4 @@ const gameMap = [
   ['-', '-', '-', '-', '-', '-', '-', '-', 'O', '-'],
 ];
 
-class Coordinate {
-  constructor(x, y) {
-    if (arguments.length === 2) {
-      this.x = x;
-      this.y = y;
-    } else {
-      this.x = 0;
-      this.y = 5;
-    }
-  }
-}
-
-module.exports = { gameMap, Coordinate };
+module.exports = gameMap;

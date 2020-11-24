@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import postSolution from '../../apiService';
+import postSolution from '../../services/apiService';
 import styles from './InputForm.module.css';
 import CustomAlert from '../CustomAlert/CustomAlert';
+import { TravelPath } from '../../classes';
+import EnabledContext from '../../contexts/EnabledContext';
 
 const POSSIBLE_INPUTS = ['n', 'e', 's', 'w'];
 
 const isValidResult = (result) => {
-  return result >= 0 && result <= 3;
+  return result instanceof TravelPath;
 };
 
 const formatInput = (str) => {
@@ -22,32 +24,38 @@ const formatInput = (str) => {
     : [];
 };
 
-let previousAttempts = [];
+// let previousAttempts = [];
 
 const InputForm = ({ setResult }) => {
-  const [formatedInput, setFormatedInput] = useState([]);
+  const { enabled, setEnabled } = useContext(EnabledContext);
   const [input, setInput] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const inputField = useRef();
+  useEffect(() => {
+    if (inputField.current) {
+      inputField.current.focus();
+    }
+  });
 
   const onInputChanged = (e) => {
     setInput(e.target.value);
-    setFormatedInput(formatInput(e.target.value));
   };
 
   const onFormSubmitted = async (e) => {
     e.preventDefault();
+    const formatedInput = formatInput(input);
     if (formatedInput.length === 0) {
-      // TODO: replace by custom alert
       setShowAlert(true);
     } else {
       const result = await postSolution(formatedInput);
       if (isValidResult(result)) {
+        setEnabled(false);
         setResult(result);
         // TODO display previous attempts
-        previousAttempts = [
-          ...previousAttempts,
-          { attempt: formatedInput, result },
-        ];
+        // previousAttempts = [
+        //   ...previousAttempts,
+        //   { attempt: formatedInput, result },
+        // ];
       }
     }
     setInput('');
@@ -63,9 +71,10 @@ const InputForm = ({ setResult }) => {
           onChange={onInputChanged}
           placeholder="n,e,s,w,..."
           spellCheck={false}
+          ref={inputField}
         />
-        <button type="submit" className={styles.Button}>
-          go
+        <button type="submit" className={styles.Button} disabled={!enabled}>
+          go!
         </button>
       </form>
       {showAlert ? (
